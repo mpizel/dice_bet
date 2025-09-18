@@ -1,5 +1,6 @@
 import random
 
+# Checks if string can be converted into integer
 def is_integer(i):
     try:
         int(i)
@@ -7,22 +8,22 @@ def is_integer(i):
     except ValueError:
         return False
 
-def betting(maxint):
-    put_in = input('How much would you like to bet? ')
+# Checks integer status of putin. Limits putin to a maximum of maxint. If not an integer, 'all in' is the only acceptable string.
+def betting(putin, maxint):
     while True:
-        while is_integer(put_in):
-            if int(put_in) >= maxint:
+        while is_integer(putin):
+            if int(putin) >= maxint:
                 print('All in!')
                 return maxint
             else:
-                return int(put_in)
-        if put_in == 'all in':
+                return int(putin)
+        if putin == 'all in':
             print('All in!')
             return maxint
         else:
-            print('Must bet an integer or "all in"')
-            continue
+            return ''
 
+# Dice roll and pot value
 def dice_roll(betint):
     roll = random.randint(1,6)
     print('You rolled a ' + str(roll))

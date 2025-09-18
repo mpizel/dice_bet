@@ -4,7 +4,11 @@ end = ''
 retry = ['Y', 'y', 'yes']
 
 while True:
-    bet = gameset.betting(balance)
+    bet = input('How much would you like to bet? ')
+    bet = gameset.betting(bet, balance)
+    if gameset.is_integer(bet) is False:
+        print('Must bet an integer or "all in"')
+        continue
     balance -= bet
 
     print(f'You betted ${bet}')
